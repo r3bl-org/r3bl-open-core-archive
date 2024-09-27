@@ -1,0 +1,6 @@
+# https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html#creating-the-second-package-in-the-workspace
+[workspace]
+members = [
+  "simple_logger",
+]
+resolver = "2"

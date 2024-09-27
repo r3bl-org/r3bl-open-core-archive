@@ -1,0 +1,12 @@
+node_modules
+package-lock.json
+/target
+**/target
+docs/*.bkp
+docs/*.dtmp
+log.txt
+crash_log.txt
+**/flamegraph.svg
+**/perf.data
+**/perf.data.old
+*.log
