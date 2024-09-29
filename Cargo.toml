@@ -2,5 +2,6 @@
 [workspace]
 members = [
   "simple_logger",
+  "redux",
 ]
 resolver = "2"
