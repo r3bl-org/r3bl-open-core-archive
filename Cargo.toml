@@ -3,5 +3,6 @@
 members = [
   "simple_logger",
   "redux",
+  "macro",
 ]
 resolver = "2"
