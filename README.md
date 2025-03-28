@@ -15,6 +15,7 @@ Here's an example.
 r3bl_simple_logger = { git = "https://github.com/r3bl-org/r3bl-open-core-archive" }
 r3bl_redux = { git = "https://github.com/r3bl-org/r3bl-open-core-archive" }
 r3bl_rs_utils_macro = { git = "https://github.com/r3bl-org/r3bl-open-core-archive" }
+r3bl_ansi_colro = { git = "https://github.com/r3bl-org/r3bl-open-core-archive" }
 ```
 
 You can submit PRs if you need any changes made to the crates in this repo.
