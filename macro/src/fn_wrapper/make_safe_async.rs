@@ -18,12 +18,13 @@
 use quote::quote;
 use syn::parse_macro_input;
 
-use super::{gen_fn_input_args_expr_list,
-            get_fn_input_args_ident_ref_from_fn_ty,
-            get_fn_output_type_from,
-            IdentRef};
-use crate::fn_wrapper::custom_syntax_parser::{make_opt_where_clause_from_generic_args,
-                                              SafeFnWrapperSyntaxInfo};
+use super::{
+    gen_fn_input_args_expr_list, get_fn_input_args_ident_ref_from_fn_ty, get_fn_output_type_from,
+    IdentRef,
+};
+use crate::fn_wrapper::custom_syntax_parser::{
+    make_opt_where_clause_from_generic_args, SafeFnWrapperSyntaxInfo,
+};
 
 pub fn fn_proc_macro_impl(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let safe_wrapper_syntax_info: SafeFnWrapperSyntaxInfo = parse_macro_input!(input);
@@ -51,8 +52,7 @@ pub fn fn_proc_macro_impl(input: proc_macro::TokenStream) -> proc_macro::TokenSt
         quote! {}
     };
 
-    let opt_where_clause =
-        make_opt_where_clause_from_generic_args(wrapper_name_type_generic_args);
+    let opt_where_clause = make_opt_where_clause_from_generic_args(wrapper_name_type_generic_args);
 
     quote! {
       // Type aliases to make the code more readable.

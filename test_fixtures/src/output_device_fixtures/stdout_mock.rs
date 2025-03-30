@@ -15,8 +15,10 @@
  *   limitations under the License.
  */
 
-use std::{io::{Result, Write},
-          sync::Arc};
+use std::{
+    io::{Result, Write},
+    sync::Arc,
+};
 
 use r3bl_core::{InlineVec, StdMutex};
 use smallvec::smallvec;
@@ -43,7 +45,9 @@ impl Default for StdoutMock {
 }
 
 impl StdoutMock {
-    pub fn new() -> Self { Self::default() }
+    pub fn new() -> Self {
+        Self::default()
+    }
 }
 
 impl StdoutMock {
@@ -69,7 +73,9 @@ impl Write for StdoutMock {
         Ok(buf.len())
     }
 
-    fn flush(&mut self) -> Result<()> { Ok(()) }
+    fn flush(&mut self) -> Result<()> {
+        Ok(())
+    }
 }
 
 #[tokio::test]
@@ -83,10 +89,7 @@ async fn test_stdout_mock_no_strip_ansi() {
     stdout_mock.write_all(normal_text.as_bytes()).unwrap();
     stdout_mock.flush().unwrap();
 
-    pretty_assertions::assert_eq!(
-        stdout_mock.get_copy_of_buffer_as_string(),
-        normal_text
-    );
+    pretty_assertions::assert_eq!(stdout_mock.get_copy_of_buffer_as_string(), normal_text);
     pretty_assertions::assert_eq!(
         stdout_mock_clone.get_copy_of_buffer_as_string(),
         normal_text

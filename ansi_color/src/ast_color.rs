@@ -25,10 +25,7 @@
 //! - <https://en.wikipedia.org/wiki/8-bit_color>
 //! - <https://github.com/Qix-/color-convert/>
 
-use crate::{TransformColor,
-            color_utils,
-            constants::ANSI_COLOR_PALETTE,
-            convert_rgb_into_ansi256};
+use crate::{TransformColor, color_utils, constants::ANSI_COLOR_PALETTE, convert_rgb_into_ansi256};
 
 /// This is the "top-level" color type that is used in this crate. For example this is
 /// used in [super::ASTStyle] to represent the foreground and background colors.
@@ -46,19 +43,27 @@ mod ast_color_impl_block {
     use super::*;
 
     impl Default for ASTColor {
-        fn default() -> Self { ASTColor::Rgb(0, 0, 0) }
+        fn default() -> Self {
+            ASTColor::Rgb(0, 0, 0)
+        }
     }
 
     impl From<RgbColor> for ASTColor {
-        fn from(rgb: RgbColor) -> Self { ASTColor::Rgb(rgb.red, rgb.green, rgb.blue) }
+        fn from(rgb: RgbColor) -> Self {
+            ASTColor::Rgb(rgb.red, rgb.green, rgb.blue)
+        }
     }
 
     impl From<Ansi256Color> for ASTColor {
-        fn from(ansi256: Ansi256Color) -> Self { ASTColor::Ansi256(ansi256.index) }
+        fn from(ansi256: Ansi256Color) -> Self {
+            ASTColor::Ansi256(ansi256.index)
+        }
     }
 
     impl From<ASTColor> for RgbColor {
-        fn from(ast_color: ASTColor) -> Self { ast_color.as_rgb() }
+        fn from(ast_color: ASTColor) -> Self {
+            ast_color.as_rgb()
+        }
     }
 
     impl TransformColor for ASTColor {
@@ -242,9 +247,13 @@ mod rgb_color_impl_block {
     }
 
     impl TransformColor for RgbColor {
-        fn as_rgb(&self) -> RgbColor { *self }
+        fn as_rgb(&self) -> RgbColor {
+            *self
+        }
 
-        fn as_ansi256(&self) -> Ansi256Color { convert_rgb_into_ansi256(*self) }
+        fn as_ansi256(&self) -> Ansi256Color {
+            convert_rgb_into_ansi256(*self)
+        }
 
         fn as_grayscale(&self) -> Ansi256Color {
             convert_rgb_into_ansi256(*self).as_grayscale()
@@ -276,6 +285,8 @@ mod ansi_256_color_impl_block {
             ANSI_COLOR_PALETTE[index].into()
         }
 
-        fn as_ansi256(&self) -> Ansi256Color { *self }
+        fn as_ansi256(&self) -> Ansi256Color {
+            *self
+        }
     }
 }

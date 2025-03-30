@@ -1,4 +1,10 @@
 # https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html#creating-the-second-package-in-the-workspace
 [workspace]
-members = ["simple_logger", "redux", "macro", "ansi_color", "test_fixtures"]
+members = [
+    "simple_logger",
+    "redux", "macro",
+    "ansi_color",
+    "test_fixtures",
+    "log"
+]
 resolver = "2"

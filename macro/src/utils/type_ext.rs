@@ -16,15 +16,10 @@
  */
 
 use quote::ToTokens;
-use syn::{punctuated::Punctuated,
-          token::Comma,
-          GenericArgument,
-          Ident,
-          Path,
-          PathArguments::AngleBracketed,
-          Type,
-          TypePath,
-          TypeReference};
+use syn::{
+    punctuated::Punctuated, token::Comma, GenericArgument, Ident, Path,
+    PathArguments::AngleBracketed, Type, TypePath, TypeReference,
+};
 
 pub trait TypeExtHasIdent {
     fn has_ident(&self) -> bool;
@@ -119,8 +114,7 @@ impl TypeExtHasGenericArgs for syn::Type {
             let path = &type_path.path;
             let path_arguments = &path.segments.first().unwrap().arguments;
 
-            if let AngleBracketed(ref angle_bracketed_generic_arguments) = path_arguments
-            {
+            if let AngleBracketed(ref angle_bracketed_generic_arguments) = path_arguments {
                 return Ok(angle_bracketed_generic_arguments.args.clone());
             }
         }
@@ -133,8 +127,7 @@ impl TypeExtHasGenericArgs for syn::Type {
             Ok(generic_args) => {
                 let mut idents = Vec::new();
                 for generic_arg in generic_args {
-                    if let GenericArgument::Type(Type::Path(ref type_path)) = generic_arg
-                    {
+                    if let GenericArgument::Type(Type::Path(ref type_path)) = generic_arg {
                         let path = &type_path.path;
                         let ident = &path.segments.first().unwrap().ident;
                         idents.push(ident.clone());
@@ -146,5 +139,7 @@ impl TypeExtHasGenericArgs for syn::Type {
         }
     }
 
-    fn to_string(&self) -> String { self.to_token_stream().to_string().replace(' ', "") }
+    fn to_string(&self) -> String {
+        self.to_token_stream().to_string().replace(' ', "")
+    }
 }

@@ -15,9 +15,11 @@
  *   limitations under the License.
  */
 
-use std::{io::Result,
-          pin::Pin,
-          task::{Context, Poll}};
+use std::{
+    io::Result,
+    pin::Pin,
+    task::{Context, Poll},
+};
 
 use tokio::io::{AsyncRead, AsyncWrite};
 

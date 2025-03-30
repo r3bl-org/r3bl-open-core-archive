@@ -15,18 +15,13 @@
  *   limitations under the License.
  */
 
-use r3bl_ansi_color::{ASTColor,
-                      ASTStyle,
-                      AnsiStyledText,
-                      ColorSupport,
-                      global_color_support};
+use r3bl_ansi_color::{ASTColor, ASTStyle, AnsiStyledText, ColorSupport, global_color_support};
 
 fn main() {
     // Print a string w/ ANSI color codes.
     {
         AnsiStyledText {
-            text:
-                "Print a formatted (bold, italic, underline) string w/ ANSI color codes.",
+            text: "Print a formatted (bold, italic, underline) string w/ ANSI color codes.",
             style: smallvec::smallvec![
                 ASTStyle::Bold,
                 ASTStyle::Italic,

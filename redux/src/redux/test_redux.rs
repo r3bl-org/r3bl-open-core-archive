@@ -23,13 +23,10 @@ mod tests {
     use r3bl_rs_utils_core::assert_eq2;
     use tokio::{sync::RwLock, task::JoinHandle};
 
-    use crate::{redux::{AsyncMiddleware,
-                        AsyncMiddlewareSpawns,
-                        AsyncReducer,
-                        AsyncSubscriber,
-                        Store},
-                spawn_dispatch_action,
-                SharedStore};
+    use crate::{
+        redux::{AsyncMiddleware, AsyncMiddlewareSpawns, AsyncReducer, AsyncSubscriber, Store},
+        spawn_dispatch_action, SharedStore,
+    };
 
     /// ```text
     /// ╭──────────────────────────────────────────────────────╮

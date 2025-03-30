@@ -81,8 +81,7 @@ pub mod sizing {
     /// Attributes are: color_fg, color_bg, bold, dim, italic, underline, reverse, hidden,
     /// etc. which are in [crate::ASTStyle].
     pub const MAX_ANSI_STYLED_TEXT_STYLE_ATTRIB_SIZE: usize = 12;
-    pub type InlineVecASTStyles =
-        SmallVec<[ASTStyle; MAX_ANSI_STYLED_TEXT_STYLE_ATTRIB_SIZE]>;
+    pub type InlineVecASTStyles = SmallVec<[ASTStyle; MAX_ANSI_STYLED_TEXT_STYLE_ATTRIB_SIZE]>;
 
     // PERF: If you make this number too large, eg: more than 16, then it will slow down the editor performance
     pub const DEFAULT_STRING_STORAGE_SIZE: usize = 16;
@@ -293,13 +292,9 @@ pub enum ASTStyle {
 mod style_impl {
     use std::fmt::{Display, Formatter, Result};
 
-    use crate::{ASTColor,
-                ASTStyle,
-                ColorSupport,
-                RgbColor,
-                SgrCode,
-                TransformColor,
-                global_color_support};
+    use crate::{
+        ASTColor, ASTStyle, ColorSupport, RgbColor, SgrCode, TransformColor, global_color_support,
+    };
 
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     enum ColorKind {
@@ -307,11 +302,7 @@ mod style_impl {
         Background,
     }
 
-    fn fmt_color(
-        color: ASTColor,
-        color_kind: ColorKind,
-        f: &mut Formatter<'_>,
-    ) -> Result {
+    fn fmt_color(color: ASTColor, color_kind: ColorKind, f: &mut Formatter<'_>) -> Result {
         match global_color_support::detect() {
             ColorSupport::Ansi256 => {
                 // ANSI 256 color mode.
@@ -407,10 +398,7 @@ mod tests {
     fn test_fg_color_on_bg_color() {
         let eg_1 = AnsiStyledText {
             text: "Hello",
-            style: smallvec!(
-                ASTStyle::Bold,
-                ASTStyle::Foreground(ASTColor::Rgb(0, 0, 0)),
-            ),
+            style: smallvec!(ASTStyle::Bold, ASTStyle::Foreground(ASTColor::Rgb(0, 0, 0)),),
         };
         println!("{:?}", eg_1);
         println!("{}", eg_1);

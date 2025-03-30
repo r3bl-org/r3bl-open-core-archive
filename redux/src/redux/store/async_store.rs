@@ -20,14 +20,10 @@ use std::sync::Arc;
 
 use tokio::sync::RwLock;
 
-use crate::{redux::{AsyncMiddlewareSpawnsVec,
-                    AsyncMiddlewareVec,
-                    AsyncReducerVec,
-                    AsyncSubscriberVec},
-            AsyncMiddleware,
-            AsyncMiddlewareSpawns,
-            AsyncReducer,
-            AsyncSubscriber};
+use crate::{
+    redux::{AsyncMiddlewareSpawnsVec, AsyncMiddlewareVec, AsyncReducerVec, AsyncSubscriberVec},
+    AsyncMiddleware, AsyncMiddlewareSpawns, AsyncReducer, AsyncSubscriber,
+};
 
 pub type SharedStore<S, A> = Arc<RwLock<Store<S, A>>>;
 
@@ -130,7 +126,9 @@ where
     S: Clone + Default + Debug + Sync + Send,
     A: Clone + Default + Send + Sync,
 {
-    pub fn get_state(&self) -> S { self.state.clone() }
+    pub fn get_state(&self) -> S {
+        self.state.clone()
+    }
 
     pub async fn dispatch_spawn(&'static mut self, action: A) {
         tokio::spawn(async move {

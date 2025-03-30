@@ -29,5 +29,7 @@ impl IdentExt for proc_macro2::Ident {
         proc_macro2::Ident::new(&name, self.span())
     }
 
-    fn as_str(&self) -> String { std::string::ToString::to_string(&self) }
+    fn as_str(&self) -> String {
+        std::string::ToString::to_string(&self)
+    }
 }

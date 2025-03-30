@@ -20,7 +20,7 @@ homepage = "https://r3bl.com"
 license = "Apache-2.0"
 
 [dependencies]
-r3bl_core = { path = "../core", version = "0.10.0" }
+r3bl_core = { git = "https://github.com/r3bl-org/r3bl-open-core.git", rev = "61ce6984d3ef03eaafcc1fd81f690e65ae08d582" } # Core functionality.
 
 # Async stream for DI and testing.
 futures-core = "0.3.31"

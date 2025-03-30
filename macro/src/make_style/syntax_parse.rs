@@ -17,16 +17,12 @@
 
 use quote::quote;
 use r3bl_rs_utils_core::{call_if_true, ch, throws, ChUnit, ChUnitPrimitiveType};
-use syn::{parse::{Parse, ParseStream},
-          Expr,
-          Expr::Verbatim,
-          ExprArray,
-          ExprPath,
-          LitBool,
-          LitInt,
-          Path,
-          PathSegment,
-          Token};
+use syn::{
+    parse::{Parse, ParseStream},
+    Expr,
+    Expr::Verbatim,
+    ExprArray, ExprPath, LitBool, LitInt, Path, PathSegment, Token,
+};
 
 use super::{Attrib, StyleMetadata, DEBUG_MAKE_STYLE_MOD};
 use crate::utils::IdentExt;
@@ -108,10 +104,7 @@ fn parse_optional_id(input: &ParseStream, metadata: &mut StyleMetadata) -> SynRe
 }
 
 // Parse lolcat (optional).
-fn parse_optional_lolcat(
-    input: &ParseStream,
-    metadata: &mut StyleMetadata,
-) -> SynResult<()> {
+fn parse_optional_lolcat(input: &ParseStream, metadata: &mut StyleMetadata) -> SynResult<()> {
     throws!({
         let lookahead = input.lookahead1();
 
@@ -130,10 +123,7 @@ fn parse_optional_lolcat(
 }
 
 // Parse attrib (optional).
-fn parse_optional_attrib(
-    input: &ParseStream,
-    metadata: &mut StyleMetadata,
-) -> SynResult<()> {
+fn parse_optional_attrib(input: &ParseStream, metadata: &mut StyleMetadata) -> SynResult<()> {
     throws!({
         let lookahead = input.lookahead1();
         if lookahead.peek(custom_keywords::attrib) {
@@ -159,9 +149,7 @@ fn parse_optional_attrib(
                         "underline" => metadata.attrib_vec.push(Attrib::Underline),
                         "reverse" => metadata.attrib_vec.push(Attrib::Reverse),
                         "hidden" => metadata.attrib_vec.push(Attrib::Hidden),
-                        "strikethrough" => {
-                            metadata.attrib_vec.push(Attrib::Strikethrough)
-                        }
+                        "strikethrough" => metadata.attrib_vec.push(Attrib::Strikethrough),
                         _ => panic!("🚀 unknown attrib: {ident}"),
                     }
                 }
@@ -176,10 +164,7 @@ fn parse_optional_attrib(
 }
 
 // Parse padding (optional).
-fn parse_optional_padding(
-    input: &ParseStream,
-    metadata: &mut StyleMetadata,
-) -> SynResult<()> {
+fn parse_optional_padding(input: &ParseStream, metadata: &mut StyleMetadata) -> SynResult<()> {
     throws!({
         let lookahead = input.lookahead1();
 
@@ -202,10 +187,7 @@ fn parse_optional_padding(
 }
 
 // Parse color_fg (optional).
-fn parse_optional_color_fg(
-    input: &ParseStream,
-    metadata: &mut StyleMetadata,
-) -> SynResult<()> {
+fn parse_optional_color_fg(input: &ParseStream, metadata: &mut StyleMetadata) -> SynResult<()> {
     throws!({
         let lookahead = input.lookahead1();
 
@@ -223,10 +205,7 @@ fn parse_optional_color_fg(
 }
 
 // Parse color_bg (optional).
-fn parse_optional_color_bg(
-    input: &ParseStream,
-    metadata: &mut StyleMetadata,
-) -> SynResult<()> {
+fn parse_optional_color_bg(input: &ParseStream, metadata: &mut StyleMetadata) -> SynResult<()> {
     throws!({
         let lookahead = input.lookahead1();
 

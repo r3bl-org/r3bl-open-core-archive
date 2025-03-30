@@ -25,23 +25,14 @@ use core::panic;
 
 use quote::{quote, ToTokens};
 
-use syn::{parse::{Parse, ParseBuffer, ParseStream},
-          parse2,
-          parse_macro_input,
-          punctuated::Punctuated,
-          token::Comma,
-          Expr,
-          GenericArgument,
-          GenericParam,
-          Generics,
-          Ident,
-          PathArguments,
-          Result,
-          Token,
-          Type,
-          TypePath,
-          Visibility,
-          WhereClause};
+use syn::{
+    parse::{Parse, ParseBuffer, ParseStream},
+    parse2, parse_macro_input,
+    punctuated::Punctuated,
+    token::Comma,
+    Expr, GenericArgument, GenericParam, Generics, Ident, PathArguments, Result, Token, Type,
+    TypePath, Visibility, WhereClause,
+};
 
 use crate::utils::{IdentExt, TypeExtHasGenericArgs, TypeExtHasIdent};
 

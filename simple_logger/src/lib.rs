@@ -148,20 +148,13 @@ mod loggers;
 pub use log::{Level, LevelFilter, Log, Metadata, Record, SetLoggerError};
 pub use termcolor::{Color, ColorChoice};
 
-pub use self::{config::{format_description,
-                        Config,
-                        ConfigBuilder,
-                        FormatItem,
-                        LevelPadding,
-                        TargetPadding,
-                        ThreadLogMode,
-                        ThreadPadding},
-               loggers::{CombinedLogger,
-                         SimpleLogger,
-                         TermLogger,
-                         TerminalMode,
-                         TestLogger,
-                         WriteLogger}};
+pub use self::{
+    config::{
+        format_description, Config, ConfigBuilder, FormatItem, LevelPadding, TargetPadding,
+        ThreadLogMode, ThreadPadding,
+    },
+    loggers::{CombinedLogger, SimpleLogger, TermLogger, TerminalMode, TestLogger, WriteLogger},
+};
 
 /// Trait to have a common interface to obtain the Level of Loggers
 ///
@@ -248,8 +241,9 @@ mod tests {
                 i += 1;
 
                 //error
-                vec.push(SimpleLogger::new(LevelFilter::Error, conf.clone())
-                    as Box<dyn SharedLogger>);
+                vec.push(
+                    SimpleLogger::new(LevelFilter::Error, conf.clone()) as Box<dyn SharedLogger>
+                );
                 vec.push(TermLogger::new(
                     LevelFilter::Error,
                     conf.clone(),
@@ -264,8 +258,9 @@ mod tests {
                 vec.push(TestLogger::new(LevelFilter::Error, conf.clone()));
 
                 //warn
-                vec.push(SimpleLogger::new(LevelFilter::Warn, conf.clone())
-                    as Box<dyn SharedLogger>);
+                vec.push(
+                    SimpleLogger::new(LevelFilter::Warn, conf.clone()) as Box<dyn SharedLogger>
+                );
                 vec.push(TermLogger::new(
                     LevelFilter::Warn,
                     conf.clone(),
@@ -280,8 +275,9 @@ mod tests {
                 vec.push(TestLogger::new(LevelFilter::Warn, conf.clone()));
 
                 //info
-                vec.push(SimpleLogger::new(LevelFilter::Info, conf.clone())
-                    as Box<dyn SharedLogger>);
+                vec.push(
+                    SimpleLogger::new(LevelFilter::Info, conf.clone()) as Box<dyn SharedLogger>
+                );
                 vec.push(TermLogger::new(
                     LevelFilter::Info,
                     conf.clone(),
@@ -296,8 +292,9 @@ mod tests {
                 vec.push(TestLogger::new(LevelFilter::Info, conf.clone()));
 
                 //debug
-                vec.push(SimpleLogger::new(LevelFilter::Debug, conf.clone())
-                    as Box<dyn SharedLogger>);
+                vec.push(
+                    SimpleLogger::new(LevelFilter::Debug, conf.clone()) as Box<dyn SharedLogger>
+                );
                 vec.push(TermLogger::new(
                     LevelFilter::Debug,
                     conf.clone(),
@@ -312,8 +309,9 @@ mod tests {
                 vec.push(TestLogger::new(LevelFilter::Debug, conf.clone()));
 
                 //trace
-                vec.push(SimpleLogger::new(LevelFilter::Trace, conf.clone())
-                    as Box<dyn SharedLogger>);
+                vec.push(
+                    SimpleLogger::new(LevelFilter::Trace, conf.clone()) as Box<dyn SharedLogger>
+                );
                 vec.push(TermLogger::new(
                     LevelFilter::Trace,
                     conf.clone(),
