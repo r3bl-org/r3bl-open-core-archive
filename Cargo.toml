@@ -2,9 +2,11 @@
 [workspace]
 members = [
     "simple_logger",
-    "redux", "macro",
+    "redux",
+    "macro",
     "ansi_color",
     "test_fixtures",
-    "log"
+    "log",
+    "script",
 ]
 resolver = "2"
