@@ -8,5 +8,6 @@ members = [
     "test_fixtures",
     "log",
     "script",
+    "tuify",
 ]
 resolver = "2"
