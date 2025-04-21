@@ -21,6 +21,7 @@ r3bl_log = { git = "https://github.com/r3bl-org/r3bl-open-core-archive" }
 r3bl_script = { git = "https://github.com/r3bl-org/r3bl-open-core-archive" }
 r3bl_tuify = { git = "https://github.com/r3bl-org/r3bl-open-core-archive" }
 r3bl_terminal_async = { git = "https://github.com/r3bl-org/r3bl-open-core-archive" }
+r3bl_core = { git = "https://github.com/r3bl-org/r3bl-open-core-archive" }
 ```
 
 You can submit PRs if you need any changes made to the crates in this repo.

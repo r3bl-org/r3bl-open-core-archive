@@ -9,5 +9,6 @@ members = [
     "log",
     "script",
     "tuify",
+    "core",
 ]
 resolver = "2"
