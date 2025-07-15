@@ -10,5 +10,6 @@ members = [
     "script",
     "tuify",
     "core",
+    "md_parser_ng",
 ]
 resolver = "2"

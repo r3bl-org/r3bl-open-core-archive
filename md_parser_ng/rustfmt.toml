@@ -1,0 +1,30 @@
+# https://rust-lang.github.io/rustfmt/
+
+# width
+max_width = 90
+
+# comment wrapping (make sure to run `rustfmt +nightly` for this to work as of May 2025.
+comment_width = 90
+wrap_comments = true
+
+# function
+fn_params_layout = "Tall" # Possible values: "Compressed", "Tall", "Vertical"
+fn_single_line = true
+
+# imports
+imports_indent = "Visual"
+imports_layout = "Mixed"
+imports_granularity = "Crate"
+group_imports = "StdExternalCrate"
+reorder_imports = true
+
+# modules
+reorder_modules = true
+
+# misc
+hard_tabs = false
+tab_spaces = 4
+trailing_comma = "Vertical"
+color = "Always"
+empty_item_single_line = true
+trailing_semicolon = true

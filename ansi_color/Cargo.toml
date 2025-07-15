@@ -9,8 +9,6 @@ categories = ["command-line-interface", "command-line-utilities"]
 version = "0.7.0"
 
 edition = "2024"
-# https://doc.rust-lang.org/cargo/reference/resolver.html#resolver-versions
-resolver = "3"
 readme = "README.md" # This is not included in cargo docs.
 authors = [
   "Nazmul Idris <idris@developerlife.com>",

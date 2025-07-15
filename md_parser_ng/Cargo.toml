@@ -1,0 +1,38 @@
+[package]
+name = "md_parser_ng"
+version = "0.1.0"
+edition = "2024"
+authors = ["R3BL LLC"]
+description = "Experimental markdown parsers (NG and Simple) archived for historical reference"
+license = "Apache-2.0"
+
+[dependencies]
+# Pinned to specific commit for compatibility. This commit does not have AsStrSlice or any other files that are in this
+# md_parser_ng crate.
+r3bl_tui = { git = "https://github.com/r3bl-org/r3bl-open-core.git", rev = "fe1182a0f6c40f38852f2204b9895bef546aeed7" }
+
+# nom is needed for the NG parser
+nom = "8.0.0"
+
+# Small vector optimization
+smallvec = "1.13.2"
+
+# Updated tracing dependencies for better compatibility
+tokio = { version = "1.45.0", features = ["full", "tracing"] }
+tracing = "0.1.41"
+tracing-core = "0.1.33"
+tracing-subscriber = "0.3.19"
+tracing-appender = "0.2.3"
+
+[dev-dependencies]
+pretty_assertions = "1.4.0"
+
+[features]
+default = []
+
+[[bench]]
+name = "benchmark_parsers"
+harness = false
+
+[lib]
+path = "src/mod.rs"
